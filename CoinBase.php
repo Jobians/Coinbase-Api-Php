@@ -10,18 +10,47 @@ function createAddress($api_key, $api_secret, $account_id, $webhook) {
     catch(Exception $e) {
         return 'Error: ' .$e;
     }
-
 }
 
-function sendTransaction($api_key, $api_secret, $account_id, $webhook) {
-    
+function sendTransaction($api_key, $api_secret, $account_id, $to, $amount, $currency) {
+    try {
+        $result = geturl("$api_url/send?api_key=$api_key&api_secret=$api_secret&account=$account_id&to=$to&amount=$amount");
+        return $result;
+    }
+    catch(Exception $e) {
+        return 'Error: ' .$e;
+    }
 }
 
-function getTransaction() {}
+function getTransaction($api_key, $api_secret, $transaction_id, $currency) {
+    try {
+        $result = geturl("$api_url/tx?api_key=$api_key&api_secret=$api_secret&txid=$transaction_id&currency=$currency");
+        return $result;
+    }
+    catch(Exception $e) {
+        return 'Error: ' .$e;
+    }
+}
 
-function getBalance() {}
+function getBalance($api_key, $api_secret, $currency) {
+    try {
+        $result = geturl("$api_url/balance?api_key=$api_key&api_secret=$api_secret&currency=$currency");
+        return $result;
+    }
+    catch(Exception $e) {
+        return 'Error: ' .$e;
+    }
+}
 
-function getAccounts() {}
+function getAccounts($api_key, $api_secret) {
+    try {
+        $result = geturl("$api_url/accounts?api_key=$api_key&api_secret=$api_secret");
+        return $result;
+    }
+    catch(Exception $e) {
+        return 'Error: ' .$e;
+    }
+}
 
 function geturl($url) {
     $crl = curl_init();
