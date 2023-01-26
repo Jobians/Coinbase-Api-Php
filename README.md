@@ -1,3 +1,1 @@
-# Coinbase-Api-Php
-
-#⚠️ UNDER DEVELOPMENT ⚠️
+# ⚠️ UNDER DEVELOPMENT
